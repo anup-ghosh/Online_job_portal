@@ -1,0 +1,62 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'navigation.html' %}
+<style>
+ tr{text-align:center}
+</style>
+
+
+<marquee style = "font-family : 'Monotype Corsiva'; font-size : 25px; color: darkcyan ; background-color: black ; font-weight: bold; margin-top: 1%">
+    Latest Job List
+</marquee>
+<hr>
+<div class="container">
+    <div class="row" >
+        <div class="col-xl-4">
+            <form action=""method="get" class="form-inline">
+                <input type="text" name="search" class="form-control" placeholder="Search by location">
+                <input type="submit" value="Search" class="btn btn-success">
+            </form>
+        </div>
+         <div class="col-xl-6">
+            <form action=""method="get" class="form-inline">
+                <input type="text" name="search" class="form-control" placeholder="Title">
+                <input type="submit" value="Search" class="btn btn-success">
+            </form>
+        </div> 
+    </div>
+<table class="table table-hover" id="example" class="display">
+    <thead>
+    <tr style="background-color: #12d4D0">
+        <th>S.No.</th>
+        <th>Company Name</th>
+        <th>Job Title</th>
+        <th>Location</th>
+        <th>Start Date</th>
+        <th>Last Date</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody >
+    {% for i in job %}
+    <tr style="background-color: #12d4">
+        <td>{{forloop.counter}}</td>
+        <td>{{i.recruiter.company}}</td>
+        <td>{{i.title}}</td>
+         <td>{{i.location}}</td>
+        <td>{{i.start_date}}</td>
+        <td>{{i.end_date}}</td>
+        <td><a href="{% url 'user_login' %}" class="btn btn-success btn-sm">Login to Apply</a>
+        </td>
+    </tr>
+    {% empty %}
+    <span class="text-center text-danger">No Job Found</span>
+    {% endfor %}
+    </tbody>
+
+</table>
+    </div>
+
+{% endblock  %}

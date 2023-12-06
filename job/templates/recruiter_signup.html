@@ -1,0 +1,106 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'navigation.html' %}
+<script>
+function checkpass()
+    {
+     if(document.signup.pwd.value!=document.signup.cpwd.value)
+     {
+     alert('password and repeat password field does not match');
+     document.signup.cpwd.focus();
+     return false;
+     }
+     return true;
+     }
+     </script>
+<marquee style = "font-family : 'Monotype Corsiva'; font-size : 25px; color: darkcyan ; background-color: black ; font-weight: bold; margin-top: 1%">
+   Recruiter Signup
+</marquee>
+<hr>
+<form class ="container mt-5" onsubmit="return checkpass();" name="signup" method="post" enctype="multipart/form-data">
+    {%csrf_token %}
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>First Name</label>
+            <input type="text" class="form-control" name="fname" placeholder="Enter first name" required>
+
+        </div>
+        <div class="form-group col-md-6">
+            <label>Last Name</label>
+            <input type="text" class="form-control" name="lname" placeholder="Enter Last name" required>
+        </div>
+
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Contact</label>
+            <input type="text" class="form-control" name="contact" placeholder="Enter Contact Number" required>
+
+        </div>
+        <div class="form-group col-md-6">
+            <label>Company</label>
+            <input type="text" class="form-control" name="company" placeholder="Enter Company Name" required>
+
+        </div>
+
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Email ID</label>
+            <input type="text" class="form-control" name="email" placeholder="Enter Email Address" required>
+
+        </div>
+
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Password</label>
+            <input type="password" class="form-control" name="pwd" placeholder="Enter Password" required>
+
+        </div>
+        <div class="form-group col-md-6">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control" name="cpwd" placeholder="Enter Password Again" required>
+        </div>
+
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Gender</label>
+            <div style="border :1px solid lightgrey;padding:6px;border-radius:6px">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline" name="gender" class="custom-control-input" value="Male">
+                <label class="custom-control-label" for="customRadioInline">Male</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2" name="gender" class="custom-control-input" value="Female">
+                <label class="custom-control-label" for="customRadioInline2">Female</label>
+            </div>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Image</label>
+            <input type="file" class="form-control" name="image" required>
+        </div>
+
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary my-3" style="width:200px">
+
+</form>
+{% include 'footer.html' %}
+{% ifequal error "no" %}
+<script>
+    alert("Signup Successful");
+    window.location = ('{% url 'recruiter_login' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Something went wrong,Try Again....");
+</script>
+{% endifequal %}
+{% endblock  %}

@@ -1,0 +1,38 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'navigation.html' %}
+<marquee style = "font-family : 'Monotype Corsiva'; font-size : 25px; color: darkcyan ; background-color: black ; font-weight: bold; margin-top: 1%">
+    Admin Login
+</marquee>
+<hr>
+
+<div class="shadow-lg bg-info p-5 container rounded-lg mb-5 "style="width:30% ">
+    <form class ="container " method="post">
+        <div class="d-flex justify-content-center mb-4"style="height:20%" >
+    
+            <img class="" src="https://i.ibb.co/16zpcQ3/admin-photo-removebg-preview.png"   >
+        </div>
+        {%csrf_token %}
+        <label><b>UserName</b></label>
+        <input type="text" class="form-control" name="uname" placeholder="Enter UserName">
+        <label><b>Password</b></label>
+        <input type="password" class="form-control" name="pwd" placeholder="Enter Password">
+
+        <input type="submit" class="btn-primary" style="margin-top: 5%; color: darkcyan; background-color: black; height : 40px ; font-size: 20px">
+    </form>
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert("Login Successful");
+    window.location = ('{% url 'admin_home' %}')
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert("Invalid Login Credentials,Try Again....");
+</script>
+{% endifequal %}
+{% endblock  %}

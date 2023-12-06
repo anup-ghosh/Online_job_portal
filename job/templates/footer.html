@@ -1,0 +1,50 @@
+{%load static %}
+<div class ="mt-5" style = "background-color : black; width: 100%; height: 350px">
+<div class="container">
+    <div class="row">
+        <div class ="col-md-3 mt-3">
+            <h3 class="text-white">
+                Contact Information
+            </h3>
+            <p style="color: white; font-size: 18px">
+                <i class="fa fa-map-marker text-danger "></i>
+             Gobra, Gopalgonj
+            </p>
+
+             <p style="color: white; font-size: 18px">
+                <i class="fa fa-envelope text-danger "></i>
+             anupbsmrstu@gmail.com 
+            </p>
+             <p style="color: white; font-size: 18px">
+                <i class="fa fa-mobile text-danger "></i>
+                    01866576782 
+            </p>
+
+            <p style="color: white; font-size: 18px">
+                <i class="fa fa-globe text-danger "></i>
+                <a href= "{% url 'index' %}" style="color: white; text-decoration: none; ">
+                    www.onlinejobportal.com</a>
+            </p>
+        </div>
+
+        <div class="col-md-5 mt-3">
+            <h3 class = "text-white">Online Placement</h3>
+            <p style="color : white; font-size : 18px">An employment website is a website that
+            deals specially with employment or careers. Many employment websites are designed to allow employers to post job requirements for a position
+            to be filled and are commonly known as job boards.</p>
+        </div>
+
+        <div class="col-md-4 mt-3">
+            <h3 class="text-white">Newsletter</h3>
+            <p style="color: white; font-size: 18px">If you want any extra information then send me your email id.</p>
+            <form method="post" class="form-inline">
+                {%csrf_token %}
+                <input type="email" name="emailid" placeholder="Email ID" required class="form-control mr-2">
+                <input type="submit" value="send" class="btn btn-primary">
+
+            </form>
+        </div>
+
+    </div>
+</div>
+</div>

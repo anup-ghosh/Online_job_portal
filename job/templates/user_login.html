@@ -1,0 +1,41 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'navigation.html' %}
+<marquee style = "font-family : 'Monotype Corsiva'; font-size : 25px; color: darkcyan ; background-color: black ; font-weight: bold; margin-top: 1%">
+    User Login
+</marquee>
+<hr>
+
+
+<div class="shadow-lg bg-info p-5 container rounded-lg mb-5"style="width:30%">
+    <form class ="container " method="post" >
+        <div class="d-flex justify-content-center mb-4"style="height:20%" >
+            <img class="" src="https://i.ibb.co/h9SsHFK/2024644-login-user-avatar-person-users-icon.png"   >
+        </div>
+        {%csrf_token %}
+        <label><b>Email ID</b></label>
+        <input type="email" class="form-control" name="uname" placeholder="Enter Email ID">
+        <label><b>Password</b></label>
+        <input type="password" class="form-control" name="pwd" placeholder="Enter Password">
+        <div class ="block my-4 flex flex-row">
+        <input type="Submit" value="Login" class="btn btn-primary border-0 rounded-lg" style=" color: darkcyan; background-color: black ; font-size: 20px">
+        </div>
+        <div >
+        <a href="{%url 'user_signup'%}" class="btn btn-primary border-0 shadow-lg" style=" color: darkcyan; background-color: black ; font-size: 20px">Create an account</a></div>
+    </form>
+</div>
+{% include 'footer.html' %}
+{% ifequal error "no" %}
+<script>
+    alert("Login Successful");
+    window.location = ('{% url 'user_home' %}')
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert("Invalid Login Credentials,Try Again....");
+</script>
+{% endifequal %}
+{% endblock  %}

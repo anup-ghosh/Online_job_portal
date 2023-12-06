@@ -1,0 +1,88 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'navigation.html' %}
+<style>
+    .container{
+    max-width : 90%
+    }
+    .content{
+    text-align:center;
+    position:absolute;
+    bottom:0;
+    background:rgba(0,0,0,0.5);
+    color : white;
+    height:30px;
+    width:91%;
+    }
+</style>
+
+<div class="container-fliud " style="margin-top:1%">
+    <img src="https://i.ibb.co/5hw1T6Q/Online-Job-Portal.png" style="height:100%;width:100%">
+</div>
+<div class="container" style="background-color : black;height:650px;margin-top:2%">
+<h1 class="text-center text-white">----------| Our Placed Students |----------</h1>
+    <div class="row mt-3">
+        <div class="col-md-3">
+            <img src="https://i.ibb.co/bX0bwmc/u1.jpg" style="width:100% ;margin-top:5%;height:200px;border-radius:50%">
+            <div class="content">
+                <p>Airtel</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <img src="https://i.ibb.co/x6FGhdp/u2.jpg" style="width:100% ;margin-top:5%;height:200px;border-radius:50%">
+            <div class="content">
+                <p>Acer</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <img src="https://i.ibb.co/09N6g4g/u3.jpg" style="width:100% ;margin-top:5%;height:200px;border-radius:50%">
+            <div class="content">
+                <p>Compaq Inc.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <img src="https://i.ibb.co/3Cm7XQy/u4.jpg" style="width:100% ;margin-top:5%;height:200px;border-radius:50%">
+            <div class="content">
+                <p>Airtel</p>
+            </div>
+        </div>
+    </div>
+
+     <div class="row mt-3">
+        <div class="col-md-3">
+            <img src="https://i.ibb.co/mRzkLdt/u5.jpg" style="width:100% ;margin-top:5%;height:200px;border-radius:50%">
+            <div class="content">
+                <p>Cisco Network</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <img src="https://i.ibb.co/CHs0FRL/u6.jpg" style="width:100% ;margin-top:5%;height:200px;border-radius:50%">
+            <div class="content">
+                <p>ATT Corporation</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <img src="https://i.ibb.co/GcPDr3H/u7.jpg" style="width:100% ;margin-top:5%;height:200px;border-radius:50%">
+            <div class="content">
+                <p>ABB Solution</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <img src="https://i.ibb.co/c8rBR03/u8.jpg" style="width:100% ;margin-top:5%;height:200px;border-radius:50%">
+            <div class="content">
+                <p>Adform Solution</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% include 'footer.html' %}
+{% endblock%}

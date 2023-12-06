@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta htpp-equiv="X-UA-Compatible" content="ie=chrome">
+    <title>CV Generator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container mt-5 mb-5">
+    <div class="text-center ">
+        <h1>CV Generator</h1>
+        <p class="lead">Fill in the form below to generate your CV</p>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        {% comment %} <div class="form-group">
+            <label for="">Name</label>
+            <input type="file" class="form-control-file" id="photo" name="photo" accept="image/*">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+        </div> {% endcomment %}
+        <div class="form-group">
+            <label for="">Phone</label>
+            <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter your phone number">
+        </div>
+        <div class="form-group">
+            <label for="">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+            <label for="">School</label>
+            <input type="text" class="form-control" id="school" name="school" placeholder="Enter your school">
+        </div>
+        <div class="form-group">
+            <label for="">Degree</label>
+            <input type="text" class="form-control" id="degree" name="degree" placeholder="Enter your degree">
+        </div>
+        <div class="form-group">
+            <label for="">University</label>
+            <input type="text" class="form-control" id="university" name="university" placeholder="Enter your university">
+        </div>
+        <div class="form-group">
+            <label for="">Skills</label>
+            <textarea class="form-control" id="skills" name="skills" rows="3" placeholder="Enter your skills"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="">Carrer Objective</label>
+            <textarea class="form-control" id="about_you" name="about_you" rows="3" placeholder="Tell something about your vision"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="">Experience</label>
+            <textarea class="form-control" id="experience" name="experience" rows="3" placeholder="Enter your experience"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>
+
+
