@@ -13,8 +13,8 @@ class Education(models.Model):
     graduation_year = models.IntegerField()
 
 class Experience(models.Model):
-    job_title = models.CharField(max_length=100)
-    company = models.CharField(max_length=100)
-    start_date = models.DateField()
+    job_title = models.CharField(max_length=100,null=True, blank=True)
+    company = models.CharField(max_length=100,null=True, blank=True)
+    start_date = models.DateField(null=True, blank=True,default="")
     end_date = models.DateField(null=True, blank=True)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True,default="")

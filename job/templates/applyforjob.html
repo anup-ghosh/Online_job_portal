@@ -21,9 +21,15 @@
 
     </div>
     <input type="submit" value="Submit" class="btn btn-danger mt-3">
+    <div class="form-row">
+        <label class="font-weight-bold">*If you have no CV then Create One From Home Page Then Submit</label>
+        
+    </div>
+    <a href="{%url 'user_home'%}" class="btn btn-outline-success shadow-lg">Home Page</a>
 </form>
 
 </div>
+
 {% ifequal error "done" %}
 <script>
     alert("Apply Successful");
