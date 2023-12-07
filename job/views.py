@@ -4,32 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from datetime import date
 from datetime import datetime
+from datetime import date
 
 # Create your views here.
-def accept(request):
-    if request.method == "POST":
-        # Retrieve form data
-        nm = request.POST.get('name', "")
-        ph = request.POST.get('phone', "")
-        em = request.POST.get('email', "")
-        dg = request.POST.get('degree', "")
-        un = request.POST.get('university', "")
-        sk = request.POST.get('skills', "")
-        ay = request.POST.get('about_you', "")
-        sc = request.POST.get('school', "")
-        exp = request.POST.get('experience', "")
-        # photo = request.FILES.get('photo', None)  # Get the uploaded photo
-
-        # if photo:
-        #     # Save the photo to a specific location
-        #     fs = FileSystemStorage()
-        #     filename = fs.save(photo.name, photo)
-
-            # Create a new profile object
-        profile = Profile(name=nm, phone=ph, email=em, school=sc, degree=dg, university=un, skills=sk, about_you=ay, experience=exp)
-        profile.save()
-
-    return render(request, "accept.html")
 def index(request):
     return render(request,'index.html')
 def admin_login(request):
@@ -444,9 +421,15 @@ def recruiter_home(request):
     d={'recruiter':recruiter,'error':error}
     return render(request,'recruiter_home.html',d)
 
+
 def latest_jobs(request):
+    today = date.today()
+    expired_jobs = Job.objects.filter(end_date__lt=today)
+    expired_jobs.delete()
+
     job = Job.objects.all().order_by('-start_date')
     d = {'job': job}
+    
     if request.method == "GET":
         st = request.GET.get('search')
         if st is not None:

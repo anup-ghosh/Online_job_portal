@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ personal_info.full_name }} - CV</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                line-height: 1.6;
+                margin: 0;
+            }
+
+            .cv-container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f2f2f2;
+            }
+
+            .cv-header {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .cv-header h2 {
+                color: #333;
+                margin-bottom: 10px;
+            }
+
+            .cv-header p {
+                color: #777;
+                margin-bottom: 5px;
+            }
+
+            .cv-section {
+                margin-bottom: 20px;
+            }
+
+            .cv-section h3 {
+                color: #555;
+                margin-bottom: 10px;
+            }
+
+            .cv-section p {
+                color: #777;
+                margin-bottom: 5px;
+            }
+
+            .cv-image {
+                text-align: right;
+                margin-top: 20px;
+            }
+
+            .cv-image img {
+                max-width: 150px;
+                max-height: 150px;
+                border-radius: 0%;
+                border: 5px solid #fff;
+            }
+
+            .cv-row {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .cv-row .cv-info {
+                width: 50%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="cv-container">
+            <div class="cv-header">
+                <h2>{{ personal_info.full_name }}</h2>
+            </div>
+            <div class="cv-row">
+                <div class="cv-info">
+                    <p>Email: {{ personal_info.email }}</p>
+                    <p>Phone: {{ personal_info.phone_number }}</p>
+                    <p>Address: {{ personal_info.address }}</p>
+                </div>
+                <div class="cv-image">
+                    <img src="{{ personal_info.profile_image.url }}" alt="Profile Image">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="cv-section">
+                        <h3>Education</h3>
+                        <div>
+                            <p><strong>{{ education.degree }}</strong></p>
+                            <p>{{ education.institution }}, {{ education.graduation_year }}</p>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h3>Experience</h3>
+                    <div>
+                        <p><strong>{{ experience.job_title }}</strong></p>
+                        <p>{{ experience.company }}, {{ experience.start_date }} - {{ experience.end_date }}</p>
+                        <p>{{ experience.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

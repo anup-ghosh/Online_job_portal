@@ -1,0 +1,17 @@
+<form method="post" action="{% url 'cv:cv_form' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Personal Information</legend>
+        {{ personal_info_form.as_p }}
+    </fieldset>
+    <fieldset>
+        <legend>Education</legend>
+        {{ education_form.as_p }}
+    </fieldset>
+    <fieldset>
+        <legend>Experience</legend>
+        {{ experience_form.as_p }}
+    </fieldset>
+    <button type="submit">Submit</button>
+    <a href="{% url 'user_home' %}">Go back home</a>
+</form>
